@@ -127,7 +127,7 @@ def main():
                 tasks=get_task(token)
                 output_task(tasks,token)
             print('wait 10 Jam')
-            time.sleep(3600)
+            time.sleep(360)
     except KeyboardInterrupt:
         print("\nProgram dihentikan oleh pengguna.")
 
