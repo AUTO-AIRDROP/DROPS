@@ -139,7 +139,7 @@ def main():
                 output_user(i,user)
                 tasks=get_task(token)
                 output_task(tasks,token)
-                countdown(1)
+            countdown(1)
     except KeyboardInterrupt:
         print("\nBot By AF09")
 
