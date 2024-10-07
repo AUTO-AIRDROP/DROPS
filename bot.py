@@ -123,7 +123,7 @@ def countdown(hours):
         # Menampilkan timer tanpa berpindah baris
         sys.stdout.write('\r' + timer)  # Menggunakan '\r' untuk kembali ke awal baris
         sys.stdout.flush()  # Memastikan output ditampilkan
-        time.sleep(1)  # Tunggu 1 detik
+        time.sleep(0.01)  # Tunggu 1 detik
 
     print("\nCountdown selesai!")
 
