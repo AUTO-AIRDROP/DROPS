@@ -20,6 +20,9 @@ def daly_bonus(token):
         'Authorization': f'Bearer {token}'
     }
     response = requests.request("POST", url, headers=headers, data=payload)
+    if(response.status_code==401):
+        print('TOKEN_EXPIRED_OR_INVALID')
+        exit()
     daily=response.json()
     if(daily['result']==True):
         print(f"{Fore.WHITE} { get_current_time()}  {Fore.YELLOW}Daily Bonus  - Streaks:{daily['streaks']}  {Fore.GREEN} Bonus:{daily['bonus']} {Style.RESET_ALL}")
