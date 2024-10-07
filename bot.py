@@ -21,7 +21,7 @@ def daly_bonus(token):
     }
     response = requests.request("POST", url, headers=headers, data=payload)
     if(response.status_code==401):
-        print('TOKEN_EXPIRED_OR_INVALID')
+        print(f'{Fore.RED}TOKEN_EXPIRED_OR_INVALID ...!')
         exit()
     daily=response.json()
     if(daily['result']==True):
