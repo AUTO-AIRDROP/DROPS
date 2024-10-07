@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+token.txt
 # C extensions
 *.so
 
@@ -120,7 +120,7 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
-
+token.txt
 # Environments
 .env
 .venv
