@@ -1,5 +1,5 @@
 
-import requests,time,json
+import requests,time,json,sys
 from datetime import datetime
 from colorama import Fore, Style, init
 
@@ -112,7 +112,20 @@ def get_token():
 def output_user(index,user):
     print('=======================================================================')
     print(f"{Fore.WHITE} { get_current_time()}  Account Ke-{index+1} {Fore.YELLOW}{user['tgUsername']}{Style.RESET_ALL}  | Balance  {Fore.GREEN}{user['balance']}{Style.RESET_ALL}")
+def countdown(hours):
+    total_seconds = hours * 3600  # Menghitung total detik dari jam
+    for remaining in range(total_seconds, 0, -1):
+        # Menghitung jam, menit, dan detik tersisa
+        hrs, mins, secs = remaining // 3600, (remaining % 3600) // 60, remaining % 60
+        # Format string waktu
+        timer = f"{hrs:02}:{mins:02}:{secs:02}"
+        
+        # Menampilkan timer tanpa berpindah baris
+        sys.stdout.write('\r' + timer)  # Menggunakan '\r' untuk kembali ke awal baris
+        sys.stdout.flush()  # Memastikan output ditampilkan
+        time.sleep(1)  # Tunggu 1 detik
 
+    print("\nCountdown selesai!")
 
 def main():
     try:
@@ -126,10 +139,9 @@ def main():
                 output_user(i,user)
                 tasks=get_task(token)
                 output_task(tasks,token)
-            print('wait 10 Jam')
-            time.sleep(360)
+                countdown(1)
     except KeyboardInterrupt:
-        print("\nProgram dihentikan oleh pengguna.")
+        print("\nBot By AF09")
 
 # Menjalankan program utama
 if __name__ == "__main__":
